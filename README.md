@@ -18,6 +18,7 @@ Emotionless autonomous trading demo agent with a Node.js backend and React dashb
 4. `npm start`
 
 Backend runs on `http://localhost:3000`.
+For faster demo cycles, keep `AGENT_INTERVAL_MS=5000` (or lower) in `backend/.env`.
 
 ### Frontend
 

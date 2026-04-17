@@ -7,7 +7,7 @@ const { addLog } = require("../utils/logger");
 const state = {
   running: false,
   intervalId: null,
-  intervalMs: 60 * 1000,
+  intervalMs: Number(process.env.AGENT_INTERVAL_MS) || 5000,
   lastPrice: null,
   currentPrice: null,
   currentPosition: "NONE",
@@ -80,7 +80,7 @@ async function runCycle() {
 function startAgent() {
   if (state.running) return false;
   state.running = true;
-  addLog("Agent started.");
+  addLog(`Agent started. Interval: ${state.intervalMs}ms`);
   runCycle();
   state.intervalId = setInterval(runCycle, state.intervalMs);
   return true;
